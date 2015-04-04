@@ -1,0 +1,47 @@
+{% extends "SmartUserBundle::layout_membre.html.twig" %}
+
+{% block title %}Compte{% endblock %}
+{% block titre %}
+Mes annonces
+{% endblock %}
+{% block page_body %}
+   
+
+      
+   
+   {% for annonce in annonces %}
+      <div class="new-anno">
+       
+        
+       {% if annonce.image != null %}
+        <a href="{{asset(annonce.image.webPath)}}" title="" class="img-new-anno"> <img src="{{asset(annonce.image.webPath)}}" height="106" width="151" alt=""> </a>
+        {% else %}
+        <a href="{{asset('img/no-avatar.jpg')}}" title="" class="img-new-anno"> <img src="{{asset('img/no-avatar.jpg')}}" alt=""> </a>
+        {% endif %}
+        <div class="desc-new-anno">
+          <h1><span>{{annonce.titre}}</span></h1>
+          <h4><span class="date">{{annonce.dateinsert|date('d,m,Y')}}</span></h4>
+          <div class="cb"></div>
+          <h2>
+            {{annonce.description | striptags | slice(0, 400)}} <a href="">Lire la suite...</a>
+          
+          </h2>
+        </div>
+        <a href="modifier.php?id=<?php echo $listes['id']; ?>" class="gere modifier" title="Modifie">Modifier</a>
+        <a href="" id="<?php echo $listes['id']; ?>" class="gere supprimer" title="Supprimer">Supprimer</a>
+        <a href="" class="gere avant" title="Mettre en avant">Mettre en avant</a>
+        
+        <div class="prix"><span></span><p>{{annonce.prix}} DNT</p></div>
+       
+        
+        <a href="{{path('front_annonce_detail',{'token':annonce.token})}}" class="details">Voir annonce »</a>
+      </div>
+     
+   {%endfor%}      
+
+         
+{% endblock %}
+
+
+
+

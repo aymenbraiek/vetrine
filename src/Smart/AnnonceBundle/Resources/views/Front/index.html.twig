@@ -1,0 +1,236 @@
+{% extends "SmartAnnonceBundle::layout_front.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block page_body %}
+
+
+
+    <div class="separator"></div>
+    
+    
+    
+    
+     
+   
+    <div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Annonces gratuites à la une</h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+      
+      
+      <div class="slider-content">
+        <div id="slider1">
+          <?php while($slides = mysql_fetch_array($slide)) {?>
+          <div>
+            <div class="slide-img">
+              <a href="fiche-anno.php?id=<?php echo $slides['id']; ?>"><img src="img/img_anno/250x255/<?php echo $slides['photoA']; ?>" alt="" style="width:230px;height:164px"></a>
+            </div>
+            <div class="infos">
+              <p><?php echo $slides['titre']; ?></p>
+              <p><?php echo $slides['prix']; ?> DNT</p>
+              <p><?php echo $slides['ville']; ?></p>
+              <p><?php echo $slides['tel']; ?></p>
+            </div>
+          </div>
+          
+          
+          <?php } ?>
+        </div>
+      </div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+    <div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Les annonces par thème</h1>
+      <h1 class="title last">Les annonces de votre région</h1>
+      <div class="cb"></div>
+
+      <div class="separator2"></div>
+      <!-- Les annonces par thème -->
+      <div class="annos">
+
+      <div class="anno">
+        <a href="par-theme/Vehicules.php"><img src="{{asset('img/auto.png')}}" alt="Auto-moto"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Vehicules.php" title="">Véhicules</a>(<?php echo $nbr_Auto['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Voiture</li>
+            <li>» Camion</li>
+            <li>» Moto</li> 
+            <li>» Bateaux - Nautisme</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/immobilier.php"><img src="{{asset('img/immobilier.png')}}" alt="Immobilier"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/immobilier.php" title="">Immobilier</a> (<?php echo $nbr_Auto['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Terrains</li>
+            <li>» Commerces</li>
+            <li>» Maison</li>
+            <li>» Appartements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Gsm images & Son.php"><img src="{{asset('img/iPhone.png')}}" alt="Gsm images & Son"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Gsm images & Son.php" title="">Gsm images & Son </a> (<?php echo $nbr_Gsm['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» GSM</a></li>
+            <li>» DVD</li>
+            <li>» Télévisions</li>
+            <li>» Appareil photos et caméscope</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Informatique.php"><img src="{{asset('img/imac wave reflet.png')}}" alt="Informatique"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Informatique.php" title="">Informatique</a> (<?php echo $nbr_Informatique['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Portables</li>
+            <li>» PC de bureau</li>
+            <li>» Composantes</li>
+            <li>» Périphériques et Logiciels</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Emploi & Stages.php"><img src="{{asset('img/emploi_imagelarge.png')}}" alt="Emploi & Stages"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Emploi & Stages.php" title="">Emploi & Stages</a> (<?php echo $nbr_Emploi['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Offres d'emploi</li>
+            <li>» Recherche d'emploi</li>
+            <li>» Stages</li>
+            <li>» Formations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Vetement.php"><img src="{{asset('img/00W027676A.png')}}" alt="Vêtement"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Vetement.php" title="">Vêtement</a> (<?php echo $nbr_Vetement['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Hommes</li>
+            <li>» Femmes</li>
+            <li>» Enfants</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Cours.php"><img src="{{asset('img/pile-de-livres.png')}}" alt="Cours"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Cours.php" title="">Cours</a> (<?php echo $nbr_Cours['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Cours de Langue</li>
+            <li>» Cours particuliers</li>
+            <li>» Cours Informatique</li>
+            <li>» Musique - Théâtre - Danse</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anno">
+        <a href="par-theme/Animaux.php"><img src="{{asset('img/noir-chien-sirius-icone-7310-64.png')}}" alt="Animaux"></a>
+        <div class="sous-anno">
+          <h2 class="title-anno"><a href="par-theme/Animaux.php" title="">Animaux </a>(<?php echo $nbr_Animaux['nbr']; ?>)</h2>
+          <ul class="listeAnno">
+            <li>» Chiens</li>
+            <li>» Chats</li>
+            <li>» Chevaux ...</li>
+          </ul>
+        </div>
+      </div>
+      
+      </div>
+
+      <!--carte-tunisie-->
+      <div class="map">
+        <img alt="carte-tunisie" usemap="#carte-tunisie" src="{{asset('img/void.png')}}">
+        <map id="carte-tunisie" name="carte-tunisie">
+        <area alt="Bizert" href="{{path('front_annonce_region',{'id':4})}}"  shape="poly" coords="110,28,115,26,117,23,119,21,124,23,129,22,133,19,137,19,140,17,145,16,150,16,153,14,155,15,156,16,159,15,161,16,163,19,166,20,171,21,173,19,174,20,175,22,178,22,182,24,184,25,181,27,178,27,178,29,175,32,168,46,166,44,159,42,156,43,152,46,141,51,137,54,134,59,131,59,128,56,130,51,127,49,125,47,123,45,120,40,118,36,113,36,111,34,111,31,111,29,110,29">
+        <area alt="béja" href="{{path('front_annonce_region',{'id':2})}}"  shape="poly" coords="140,52,134,60,129,58,129,55,131,51,129,49,126,48,119,36,113,36,112,33,112,29,109,29,101,38,103,41,102,42,104,45,106,50,103,51,102,54,104,57,107,58,108,58,109,62,110,66,111,71,110,75,109,79,107,79,114,85,117,83,125,85,127,87,131,80,140,80,143,83,149,80,153,80,157,75,161,70,157,64,151,59,147,57,141,52,140,52">
+        <area alt="Jendouba" href="{{path('front_annonce_region',{'id':7})}}"  shape="poly" coords="99,38,93,42,89,42,84,42,83,47,86,50,85,53,80,55,73,56,74,59,74,62,72,66,65,70,61,73,55,75,54,76,55,78,59,78,63,79,68,80,69,83,68,86,68,88,77,83,92,82,100,80,104,79,107,79,109,76,110,71,108,65,107,58,103,56,101,54,103,51,104,49,103,46,102,43,102,40,101,39,99,38">
+        <area alt="Kef" href="{{path('front_annonce_region',{'id':11})}}"  shape="poly" coords="67,137,60,130,60,127,61,119,63,114,63,108,65,104,65,100,65,97,66,94,66,91,68,88,77,83,92,82,96,81,99,80,101,80,104,85,104,91,107,97,109,103,116,107,113,116,107,127,107,134,102,132,89,128,84,128,83,131,81,137,76,138,72,136,69,137,67,140,67,137">
+        <area alt="Siliana" href="{{path('front_annonce_region',{'id':19})}}"  shape="poly" coords="151,80,145,81,142,82,139,80,130,80,128,83,126,86,124,85,121,84,118,84,115,84,113,85,110,82,107,80,104,79,101,80,104,85,103,90,108,97,108,102,113,105,115,107,115,112,113,116,110,122,107,126,107,132,109,137,112,140,114,140,117,142,120,144,125,146,126,150,131,148,134,148,133,145,129,141,124,135,123,132,126,132,130,134,133,133,136,131,138,131,138,130,137,127,137,124,138,118,145,112,151,107,153,107,153,105,154,103,153,99,148,98,143,95,145,93,151,88,153,84,153,82,151,80">
+        <area alt="Zaghouan" href="{{path('front_annonce_region',{'id':24})}}"  shape="poly" coords="152,106,154,103,154,99,151,98,146,97,144,95,143,93,145,92,148,90,151,88,152,85,153,82,152,79,156,73,161,70,163,68,165,65,167,65,169,67,171,69,174,69,178,72,180,75,183,75,184,78,185,80,187,79,190,78,190,81,191,85,193,86,191,91,192,93,190,94,186,95,186,97,185,100,181,102,178,103,177,105,174,106,173,110,171,111,164,107,161,106,159,107,156,107,153,107,152,106,152,106,152,106">
+        <area alt="manouba" href="{{path('front_annonce_region',{'id':13})}}"  shape="poly" coords="166,44,161,42,156,43,153,46,147,48,141,51,144,54,149,58,153,59,157,64,160,68,161,70,165,65,167,65,170,63,173,59,171,57,171,55,171,51,169,49,167,47,167,45,166,44">
+        <area alt="Tunis" href="{{path('front_annonce_region',{'id':23})}}"  shape="poly" coords="178,30,175,32,169,43,168,47,169,49,172,51,172,54,172,55,178,56,183,54,187,50,190,50,189,47,185,43,182,40,181,37,181,35,183,32,181,31,180,30,178,30">
+        <area alt="Ben Arous" href="{{path('front_annonce_region',{'id':3})}}"  shape="poly" coords="193,59,190,57,189,52,188,50,184,54,180,56,174,56,171,55,173,59,171,62,167,66,171,68,174,69,179,72,180,75,182,76,184,78,186,80,188,78,190,78,191,76,192,72,192,68,193,66,194,62,194,60,193,59">
+        <area alt="Nabeul" href="{{path('front_annonce_region',{'id':16})}}"  shape="poly" coords="191,78,192,73,193,70,192,68,193,65,196,60,201,57,204,54,207,48,212,47,219,45,226,39,227,35,231,34,235,33,236,36,238,40,240,46,239,50,235,54,229,61,223,72,221,79,218,79,214,79,212,81,207,82,204,82,203,84,198,84,193,84,191,85,191,82,191,79">
+        <area alt="Monastir" href="{{path('front_annonce_region',{'id':15})}}"  shape="poly" coords="233,138,224,134,222,132,222,129,223,128,220,127,217,128,214,128,211,128,210,132,210,135,210,137,208,140,205,141,200,143,199,143,204,146,212,150,214,151,219,151,222,151,224,148,233,144,234,142,235,140,234,139,233,138">
+        <area alt="Sousse" href="{{path('front_annonce_region',{'id':20})}}"  shape="poly" coords="201,84,199,85,198,85,197,85,194,84,193,85,193,88,191,91,193,93,193,94,189,94,187,95,186,99,181,103,180,107,185,110,185,115,182,121,180,125,188,141,189,142,199,143,207,140,210,138,209,133,211,129,213,126,207,119,203,112,200,107,199,96,201,91,203,86,202,84">
+        <area alt="Kairouan" href="{{path('front_annonce_region',{'id':8})}}"  shape="poly" coords="173,110,174,105,176,106,178,104,180,103,181,104,180,107,182,108,184,109,185,111,184,116,182,121,180,125,184,134,187,139,188,142,187,143,185,144,185,146,184,150,181,157,181,160,181,162,182,168,185,171,184,173,180,175,172,184,170,175,168,174,164,174,158,173,153,172,149,169,145,164,141,163,139,161,136,157,136,151,134,147,127,138,124,134,124,132,126,132,129,134,133,134,136,131,138,131,137,128,137,127,137,125,137,123,138,118,142,115,152,107,159,107,163,107,170,110,171,111,173,111,173,110">
+        <area alt="Kasserine" href="{{path('front_annonce_region',{'id':9})}}"  shape="poly" coords="96,202,107,196,109,194,108,192,110,188,112,185,118,184,122,182,123,178,122,169,117,167,116,165,117,162,120,160,122,156,125,154,126,151,125,146,120,145,118,144,116,140,112,139,107,134,102,134,90,129,86,128,84,130,82,132,81,136,80,138,76,138,72,136,69,138,67,141,67,148,68,150,65,152,64,160,65,163,68,165,74,166,71,169,70,172,68,176,65,180,64,186,62,190,60,193,61,196,61,200,64,203,64,205,77,211,80,207,86,205,96,202">
+        <area alt="Gafsa" href="{{path('front_annonce_region',{'id':6})}}"  shape="poly" coords="51,220,56,216,58,213,60,211,59,206,63,205,66,206,70,207,77,211,81,207,92,204,95,203,104,206,110,206,116,208,122,210,125,210,123,214,124,218,130,222,138,227,141,230,142,238,138,241,134,242,129,240,126,240,123,243,116,243,110,244,105,250,98,249,94,251,85,250,79,251,65,250,62,245,57,243,55,243,51,240,46,234,47,231,50,229,51,228,49,226,50,221,51,220">
+        <area alt="Tozeur" href="{{path('front_annonce_region',{'id':22})}}"  shape="poly" coords="49,221,43,225,35,229,34,235,32,242,26,243,20,244,19,247,20,253,16,253,15,263,15,267,16,273,18,279,19,286,28,299,52,283,59,277,73,267,80,260,85,250,80,251,65,250,65,247,61,244,55,243,50,239,45,234,46,230,51,229,49,225,50,221">
+        <area alt="Tataouine" href="{{path('front_annonce_region',{'id':21})}}"  shape="poly" coords="167,355,165,350,165,343,168,339,166,334,167,333,167,330,164,325,173,324,180,319,185,321,197,314,208,312,210,315,207,315,215,318,234,327,236,332,241,338,239,343,240,354,244,357,255,366,260,367,256,371,249,376,245,382,234,387,224,394,221,400,216,404,210,404,210,411,203,421,198,423,193,422,182,434,177,442,187,469,188,484,182,496,175,506,170,510,165,520,156,524,144,530,143,528,117,417,114,398,68,367,68,366,67,363,85,360,104,356,120,356,137,351,147,345,151,344,156,348,166,356,167,355,167,356">
+        <area alt="Mednine" href="{{path('front_annonce_region',{'id':14})}}"  shape="poly" coords="246,381,255,379,266,374,268,364,264,357,264,340,265,329,267,320,263,317,256,318,244,315,241,310,243,305,239,301,240,303,233,304,229,306,223,301,232,299,239,297,240,290,234,284,229,285,229,289,219,296,213,292,215,288,216,280,218,277,222,276,225,279,227,279,233,274,235,273,235,270,231,268,228,266,223,266,219,264,216,267,216,273,216,277,212,279,208,282,207,284,199,284,194,287,188,297,184,298,177,303,175,305,170,307,165,309,158,309,154,310,158,314,164,314,165,323,165,324,172,324,179,319,184,320,198,313,209,312,209,316,233,326,241,337,239,348,240,354,255,366,260,367,248,377,246,381,246,381,246,381">
+        <area alt="Gabés" href="{{path('front_annonce_region',{'id':5})}}"  shape="poly" coords="153,309,144,297,140,294,143,289,142,286,138,283,135,282,132,280,126,273,125,267,123,262,123,253,127,250,128,248,126,246,123,243,126,240,130,240,134,242,138,241,144,237,148,237,151,239,154,242,160,241,166,247,168,243,170,244,171,255,178,267,191,279,197,283,198,284,193,288,188,297,180,301,170,307,156,309,153,309,153,309,153,309">
+        <area alt="Kebili" href="{{path('front_annonce_region',{'id':10})}}"  shape="poly" coords="66,362,65,357,64,345,51,322,47,322,35,315,33,317,31,317,30,314,28,312,27,305,29,299,51,284,55,281,59,277,73,267,80,260,85,250,94,251,99,249,104,250,105,250,110,245,117,244,123,244,127,248,123,254,124,265,128,275,134,282,141,285,143,289,140,294,158,314,164,314,165,323,164,327,167,329,168,332,166,334,168,339,165,344,167,355,165,355,153,345,148,344,136,351,121,354,118,355,103,355,79,361,69,363,66,361">
+        <area alt="Mehdia" href="{{path('front_annonce_region',{'id':12})}}"  shape="poly" coords="234,177,235,175,236,172,239,171,239,168,241,166,237,163,235,160,235,154,236,147,234,144,229,146,224,148,222,151,219,151,214,151,208,148,201,145,198,143,189,143,188,144,185,144,185,147,185,149,182,154,180,160,182,163,182,168,185,172,185,173,191,175,195,177,198,175,202,171,205,170,207,168,210,166,213,168,216,168,218,165,221,167,221,172,223,174,226,172,228,174,229,176,230,177,232,177,234,176">
+        <area alt="Sfax" href="{{path('front_annonce_region',{'id':17})}}"  shape="poly" coords="174,182,180,176,185,174,193,176,196,177,201,172,204,170,207,171,209,167,212,168,216,168,218,165,221,167,221,171,222,173,225,174,226,173,228,175,232,177,234,179,231,185,228,187,228,190,228,193,226,195,225,197,224,199,221,200,218,203,216,207,216,210,214,210,213,211,209,211,207,214,208,217,207,218,200,218,198,220,196,223,194,225,192,226,189,227,188,227,188,229,184,231,182,231,180,233,176,236,171,243,170,244,168,243,167,245,166,246,164,245,160,241,155,242,155,239,152,234,154,233,160,228,162,229,163,227,167,226,171,223,173,220,171,217,165,215,159,214,159,208,171,185,174,182">
+        <area alt="Sidi Bouzid" href="{{path('front_annonce_region',{'id':18})}}"  shape="poly" coords="127,150,130,148,134,148,137,152,136,158,139,162,145,164,149,169,154,173,159,173,164,174,169,173,171,178,172,184,166,196,160,206,158,212,159,215,163,215,166,215,169,216,172,218,173,221,166,227,162,229,156,231,151,234,154,238,155,241,154,241,149,237,143,237,142,238,141,230,135,226,125,218,123,214,125,210,121,210,112,207,103,207,96,203,97,201,109,194,108,192,109,189,112,185,116,184,118,184,121,183,122,181,123,178,123,171,121,169,117,168,116,166,116,163,120,160,122,157,124,154,126,151,127,150">
+        </map>
+      </div>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+      <h1 class="title">Les dernières annonces</h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+     {% for annonce in annonces %}
+      <div class="new-anno">
+        {% if annonce.image == null %}
+         <a href="" class="img-new-anno">
+          <img src="{{asset('img/no-avatar.jpg')}}" alt="" >
+        </a>
+        {% else %}
+        <a href="{{asset(annonce.image.webPath)}}" class="img-new-anno" width="151" height="106">
+          <img src="{{asset(annonce.image.webPath)}}" alt="" width="151" height="106" >
+        </a>
+        {% endif %}
+        <div class="desc-new-anno">
+          <h1>               <span>{{annonce.titre}}</span></h1>
+          <h4>
+            <span class="date">{{annonce.dateinsert|date('d,m,Y')}}</span>
+            <span class="membre">publié par {{annonce.user.username}}</a></span>
+            
+            <span class="comment"> nbr commentaires</span>
+          </h4>
+          <div class="cb"></div>
+          <h2>
+             {{annonce.description | striptags | slice(0, 400)}} <a href="">Lire la suite...</a>Lire la suite...</a>
+            <?php } ?>
+          </h2>
+        </div>
+        
+          <div class="prix"><span></span><p>{{annonce.prix}} DNT</p></div>
+     
+        <a href="{{path('front_annonce_detail',{'token':annonce.token})}}" class="details">Voir annonce »</a>
+      </div>
+      <div class="separator-anno"></div>
+     {%endfor%}
+      <div class="pagination">
+             {% for p in range(1, nombrePage) %}
+             	{% if p != 0 %}
+              <a href="{{ path('homepage_front', {'page': p}) }}" {% if p == page %} class="pag active"{% else %} class="pag" {% endif %}>{{ p}}</a>
+             {% elseif p == 1 or p == 0 %}
+		
+		{% endif %}
+             {% endfor %}
+            </div> 
+      <div class="cb"></div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+{% endblock %}

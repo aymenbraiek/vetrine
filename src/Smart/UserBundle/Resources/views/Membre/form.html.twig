@@ -1,0 +1,56 @@
+<form  method="POST" {{form_enctype(form)}}>
+           <div id="" class="input">
+        {{form_errors(form.categorie) }}
+		{{form_label(form.categorie) }}
+		{{form_widget(form.categorie) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+            <div id="" class="input">
+        {{form_errors(form.governorat) }}
+		{{form_label(form.governorat) }}
+		{{form_widget(form.governorat) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+ 			
+ 			
+            <div id="" class="input">
+        {{form_errors(form.prix) }}
+		{{form_label(form.prix) }}
+		{{form_widget(form.prix) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+           
+            <div id="" class="input">
+        {{form_errors(form.titre) }}
+		{{form_label(form.titre) }}
+		{{form_widget(form.titre) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+            
+            
+             <div id="" class="input">
+        {{form_errors(form.description) }}
+		{{form_label(form.description) }}
+		{{form_widget(form.description) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+            <div id="" class="input">
+        {{form_errors(form.image) }}
+		{{form_label(form.image) }}
+		{{form_widget(form.image) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+ 			{{form_rest(form)}}
+            <div class="cb"></div>
+            <div id="" class="input last">
+             
+              <input type="submit" name="submit" class="submit" value="ENVOYER">
+              <div class="cb"></div>
+            </div>          
+         </form>

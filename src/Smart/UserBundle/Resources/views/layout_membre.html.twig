@@ -1,0 +1,29 @@
+{% extends "::layout_front.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block body %}
+
+
+     <div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">{% block titre%}{% endblock %}</h1>
+      <div class="bloc-info">
+        <ul>
+          <li><a href="{{ path("index_membre") }}" >Mon compte</a></li>
+          <li><a href="{{ path("edit_membre",{'salt':app.user.salt}) }}">Mes infos</a></li>
+          <li><a href="{{ path("annonce_membre") }}" >Mes annonce</a></li>
+          <li><a href="{{ path("message_membre") }}">Messager</a></li>
+        </ul>
+      </div>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+		{% block page_body %}
+		
+		{% endblock %}
+      <div class="separator-anno"></div>
+  
+    </div>
+    <div class="bkg-content-bottom"></div>       
+
+{% endblock %}

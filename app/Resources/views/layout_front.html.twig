@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}Accueil {% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- css Style -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('css/map.css') }}" type="text/css" >
+<link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}">
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/FormValid.css') }}">
+<link rel="stylesheet" href="{{ asset('css/selectbox.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/zoombox.css') }}">
+{% stylesheets '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+<!-- js javascript -->
+<script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.bxSlider.min.js') }}" ></script>
+
+<script type="text/javascript" src="{{ asset('js/bxSlider.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.selectBox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/zoombox.js') }}"></script>
+
+
+
+<!-- js javascript interne selectBox -->
+<script type="text/javascript">
+  $(document).ready( function() {
+    $("SELECT").selectBox();
+  });
+</script> 
+<!-- js javascript interne zoombox -->
+<script type="text/javascript">
+  jQuery(function($){
+      $('a.zoombox').zoombox();
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready( function() {
+      $(".bkg-content-top.search").hide();
+      $(".bkg-content-bottom.search").hide();
+      $('.bkg-content.search').html(''); 
+        $('#ajax-loader').remove(); 
+      $('#q').keyup( function(){
+        $mot = $(this);
+        if( $mot.val().length > 1 )
+        {
+        $.ajax({
+        type : 'GET', 
+        url : 'recherche.php' , 
+        data : 'q='+$(this).val() , 
+        beforeSend : function() { 
+        $mot.after('<img src="img/ajax-loader.gif" alt="loader" id="ajax-loader" style="float:left; margin-top:15px;"/>'); 
+        },
+        success : function(data){ 
+        $('#ajax-loader').remove(); 
+        $(".bkg-content-top.search").show();
+        
+        $('.bkg-content.search').html(data); 
+
+        $(".bkg-content-bottom.search").show();
+        }
+        });
+        }   
+      });
+    });
+</script>
+<script type="text/javascript">
+function myBlur(element){
+   if (element.value == ''){
+    element.value = element.defaultValue; 
+    }
+  }
+</script>
+
+{% endblock %}
+</head>
+<body>
+<div id="entete">
+  <div id="top-head">
+    <div class="wrapp">
+      <div id="menu"> 
+        <ul id="nav">
+          <li><a href="{{	path('homepage_front') }}">Accueil</a></li>
+          <li><a href="{{	path('front_annonce_offre') }}">Offres</a></li>
+          {% if is_granted("ROLE_ADMIN") %}
+          <li><a href="{{	path('index_membre') }}">Mon compte</a></li>
+          <li><a href="{{	path('homepage') }}">Administration</a></li>
+          {% elseif is_granted("ROLE_MEMBRE") %}
+          <li><a href="{{	path('index_membre') }}">Mon compte</a></li>
+          
+          <li><a href="">Contact</a></li>
+           {% endif %}
+           
+         
+          
+         
+         </ul>
+      
+      <!-- Login Starts Here -->
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <h1 id="laBienvenue">Bienvenue {{app.user.username}} !</h1> 
+        
+        <a href="{{	path('fos_user_security_logout') }}" id="deconnexion">Déconnexion</a>
+        
+      {% else %}
+            
+            <div id="loginContainer">
+                <a href="{{ path('fos_user_security_login') }}" id="loginButton"><span>Se connecter</span></a>
+                <div style="clear:both"></div>
+               <!-- <div id="loginBox">                
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="loginForm">
+                        <fieldset id="body">
+                            <fieldset>
+                                <label for="email">Pseudo</label>
+                                <input type="text" name="login" id="Pseudo" required>
+                            </fieldset>
+                            <fieldset>
+                                <label for="password">Mot de passe</label>
+                                <input type="password" name="pass" id="password" required>
+                            </fieldset>
+                            <input type="submit" id="login" name="connexion" value="Connexion" />
+                        </fieldset>
+                    </form>
+                </div>-->
+            </div>
+            <!-- Login Ends Here -->
+            <a href="{{	path('fos_user_registration_register') }}" id="creecompte">Créer un compte </a>
+         {% endif %}
+      </div>
+      {% if is_granted('ROLE_ADMIN') %}
+      <a href="{{path('homepage') }}" title="" class="admin">Panel Admin »</a>
+      {% else %}
+      
+    {% endif %}
+    </div>
+  </div>
+  <div class="wrapp">
+    <div id="head">
+      <div class="intro">
+        <p></p>
+        <h1>Déposez des annonces</h1>
+        <ul>
+          <li> Mise en ligne simple et rapide !</li>
+          <li> Ajouter vos photo !</li>
+          <li> Géolocalisation des annonces !</li>
+        </ul>
+      </div>
+      <div class="intro last">
+        <h1>Consultez les annonces </h1>
+        <ul>
+          <li> 100% GRATUIT !</li>
+          <li> Recherche avancée !</li>
+          <li> Contact Direct Vendeur</li>
+        </ul>
+      </div>
+      <a href="{{	path('new_annonce_membre') }}" class="btnanno"></a>
+    </div>
+  </div>
+</div>
+<div class="wrapp">
+  <div id="contenaire">
+    <h2 class="nbr_membre">Plus de <span>15</span> membres !</h2>
+    <h2 class="nbr_connecte">Il y a actuellement <span>1</span> visiteur</h2>
+    <div class="cb"></div>
+    <div class="cb"></div>
+    <div class="separator"></div>
+    <div style="">
+    	{% block body %}
+    	
+    	{% endblock %}
+    	
+    </div>
+    
+
+    
+  </div>
+</div>
+<!-- #entete -->
+<div id="footer">
+      <div class="wrapp">
+        
+      </div>
+</div>
+<!-- /#entete -->
+</body>
+</html>

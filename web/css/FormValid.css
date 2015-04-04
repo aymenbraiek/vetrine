@@ -1,0 +1,14 @@
+input ,textarea{
+    -moz-transition-duration:0.5s;
+}
+input:focus:invalid ,textarea:focus:invalid{
+    border-color: #ff0000;
+    background: #fff url(Erreur.png) 98% center no-repeat;
+    box-shadow: 0px 0px 5px #d45252;
+}
+input:focus:valid ,textarea:focus:valid {
+    border-color: #56d93f;
+    background: #fff url(Valide.png) 98% center no-repeat;
+    box-shadow: 0px 0px 5px #56d93f;
+}
+

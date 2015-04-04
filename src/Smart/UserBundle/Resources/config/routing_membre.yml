@@ -1,0 +1,27 @@
+index_membre:
+    pattern: /Compte
+    defaults: { _controller: SmartUserBundle:Membre:compte }
+edit_membre:
+    pattern: /Edit/{salt}
+    defaults: { _controller: SmartUserBundle:Membre:edit }
+annonce_membre:
+    pattern: /Annonce
+    defaults: { _controller: SmartUserBundle:Membre:annonce }
+new_annonce_membre:
+    pattern: /Annonce/New
+    defaults: { _controller: SmartUserBundle:Membre:newannonce }
+edi_annonce_membre:
+    pattern: /Annonce/New
+    defaults: { _controller: SmartUserBundle:Membre:editannonce }
+delete_annonce_membre:
+    pattern: /Annonce/New
+    defaults: { _controller: SmartUserBundle:Membre:deleteannonce }
+message_membre:
+    pattern: /Message
+    defaults: { _controller: SmartUserBundle:Membre:message }
+new_message_membre:
+    pattern: /Message/New
+    defaults: { _controller: SmartUserBundle:Membre:newmessage }
+new_commentaire_membre:
+    pattern: /Commentaire/New
+    defaults: { _controller: SmartUserBundle:Membre:newcommentaire }

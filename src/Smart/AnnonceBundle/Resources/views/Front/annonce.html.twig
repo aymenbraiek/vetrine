@@ -1,0 +1,82 @@
+{% extends "SmartAnnonceBundle::layout_front.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block page_body %}
+
+
+<div class="separator"></div>
+  <div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Fiche d'annonce</h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+      
+      
+      
+      <div class="left">
+        <div class="fiche">
+          
+          <h1 class="prix">{{annonce.prix}} DNT</h1> 
+        
+          <h2 class="titre">{{annonce.titre}}</h2>
+          <div class="cb"></div>
+          <div class="separator2 last"></div>
+          <h3 class="categorie">Catégorie {{annonce.categorie.nom}}</h3> <h4 class="date">Mise en ligne le : <span>{{annonce.dateinsert|date('d,m,Y')}}</span></h4>
+          <div class="cb"></div>
+          <div class="separator2 last"></div>
+          <h1 class="pays">Payes:  <span>Tunisie</span></h1>
+          <h1 class="ville">ville:  <span>{{annonce.governorat.ville}}</span></h1>
+          <div class="cb"></div>
+          <div class="separator2 last"></div>
+          <p class="desc">{{annonce.description}}</p>
+          
+          <div class="cb"></div>
+          <div class="separator2 last"></div>
+        </div>
+        
+        
+                <div class="entete-comms">
+          <h1> commentaires </h1>
+          <a href="#passcomm" class="ajout">Ajouter un commentaire</a>
+          <div class="cb"></div>
+          <div class="separator2 last"></div>
+        </div>
+        
+        
+        {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
+        
+       
+        
+        
+        
+      </div>
+      <div class="right">
+         
+           {% if annonce.image != null %}
+            <a href="{{ asset(annonce.image.webPath) }}" title="" id="bkg-no-img" class="zoombox zgallery1" id="bkg-no-img">
+           <img src="{{ asset(annonce.image.webPath) }}" alt="{{annonce.image.alt}}" width="250" height="250">
+            </a>
+           {%else%}
+           <a href="{{asset('img/no-avatar.jpg')}}" title="" id="bkg-no-img" class="zoombox zgallery1" id="bkg-no-img">
+           <img src="{{asset('img/no-avatar.jpg')}}" alt="" width="250" height="250">
+            </a>
+         
+           {%endif%}
+           
+         
+       <div id="" class="Informations">
+          <h1>Informations sur le vendeur</h1>
+          <ul>
+            
+              <li><img src="{{asset('img/telephone-icone-8868-32.png')}}" alt="">{{annonce.user.tel}}</li>
+           	 <li><img src="{{asset('img/portable-mobile-telephone-icone-4943-32.png')}}" alt="">{{annonce.user.mobile}}</li>
+           	 <li><img src="{{asset('img/terre-email-monde-icone-3948-32.png')}}" alt="">{{annonce.user.email}}</li>
+            <li></li>
+          </ul>
+       </div><!-- / -->
+      </div>
+      <div class="cb"></div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+{% endblock %}

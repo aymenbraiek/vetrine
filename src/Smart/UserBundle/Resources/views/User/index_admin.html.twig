@@ -1,0 +1,95 @@
+{% extends "SmartUserBundle::layout_user.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+{% block titre %}
+<h1>Gestion Administrateur</h1>
+{% endblock %}
+{% block page_body %}
+    
+            <table>
+              <tr>
+               
+                <th scope="col">Image</th>
+                <th scope="col">Login </th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date inscription</th>
+                <th scope="col">Role</th>
+                <th scope="col">action</th>
+              </tr>
+              {% for user in users %}
+               <tr class="tr">
+               
+               <td>{% if user.image == null %}
+                <img src="{{asset('img/no-avatar.jpg')}}" alt="" >
+              {% else %}
+              <img src="{{asset(user.image.webPath)}}" alt="{{user.image.alt}} " width="151" height="106" >
+              {% endif %}  </td>
+               <td><a href="{{path('chow_user',{'salt':user.salt})}}" >{{user.username}}</a></td>
+               <td>{{user.nom}}</td>
+               <td>{{user.prenom}}</td>
+               <td>{{user.email}}</td>
+               <td>{{user.dateinscription|date('Y,m,d')}}</td>
+               
+               
+               	{% if user.roles[0] == 'ROLE_MEMBRE' %}
+				<td> <a href="{{ path('role_admin_user', {'salt':user.salt}) }}">Designer comme administrateur</a></td>
+				{%else%}
+				<td> <a href="{{ path('role_user_user', {'salt':user.salt}) }}">Designer comme Utilisateurs</a></td>
+
+				{% endif %}
+				
+                 <td> <a href="{{path('edit_user',{'salt':user.salt})}}" class="">modifie</a>
+                  <a href="#" id="{{user.id}}" class="supp" style="margin-left:20px;">supprimer</a></td>
+                
+                
+               </tr>
+              {% endfor %}
+              </table>
+	<div class="pagination">
+             {% for p in range(1, nombrePage) %}
+             	{% if p != 0 %}
+              <a href="{{ path('index_user_admin', {'page': p}) }}" {% if p == page %} class="pag active"{% else %} class="pag" {% endif %}>{{ p}}</a>
+             {% elseif p == 1 or p == 0 %}
+		
+		{% endif %}
+             {% endfor %}
+            </div> 
+<script src="http://code.jquery.com/jquery-1.7.2.js" type="application/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script> 
+
+<script type="text/javascript">
+$(function() {
+
+
+$(".supp").click(function(){
+var element = $(this);
+var info = element.attr("id");
+var id_cat =  info;
+ if(confirm("Supprimer cet categories ?"))
+      {
+
+ $.ajax({
+   type: "POST",
+   url: "/vetrine/web/app_dev.php/Admin/User/delete",
+   data: {'id': id_cat},
+   dataType: 'json',
+   success: function(){
+   
+   
+   }
+ });
+    
+$(this).parents(".tr").animate({ backgroundColor: "#fbc7c7" }, "fast")
+    .animate({ opacity: "hide" }, "slow");
+ }
+
+return false;
+
+});
+
+});
+</script>
+       
+{% endblock %}

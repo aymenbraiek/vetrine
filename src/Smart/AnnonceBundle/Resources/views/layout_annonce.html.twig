@@ -1,0 +1,20 @@
+{% extends "::layout_admin.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block body %}
+{% block titre %}
+
+{% endblock %}
+<div class="separ"></div>
+            <div class="liens anno">
+              <a href="{{path('new_annonce')}}" title="" class="ajouAnno">Ajouter une annonce</a><h3>Ajouter une annonce</h3>
+              <a href="{{path('index_annonce')}}" title="" class="ajouAnno list">Liste des annonces</a><h3>Liste des annonces</h3>
+             
+              <div class="cb"></div>
+   </div>
+{% block page_body %}
+
+
+{% endblock %}
+{% endblock %}

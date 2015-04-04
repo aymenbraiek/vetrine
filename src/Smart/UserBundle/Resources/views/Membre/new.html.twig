@@ -1,0 +1,35 @@
+{% extends "SmartUserBundle::layout_membre.html.twig" %}
+
+{% block title %}Compte{% endblock %}
+{% block titre %}
+Modifier info
+{% endblock %}
+{% block page_body %}
+   
+
+      
+   
+<div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Déposer une annonce, c’est gratuit !</h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+      <div class="annonce">
+        <p>Déposer GRATUITEMENT une petite annonce en remplissant ce formulaire.<br>
+         Elle sera publiée sur le site en quelque seconde. Vous pourrez la supprimer ou la modifier sans frais à tout moment.</p>
+		
+		{% include "SmartUserBundle:Membre:form.html.twig" %}
+		
+      </div>
+      <div class="cb"></div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+     
+         
+
+         
+{% endblock %}
+
+
+
+

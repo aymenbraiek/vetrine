@@ -1,0 +1,12 @@
+homepage_front:
+    pattern:  /{page}
+    defaults: { _controller: SmartAnnonceBundle:Front:index, page:1 }
+front_annonce_detail:
+    pattern:  /Annonce/chow/{token}
+    defaults: { _controller: SmartAnnonceBundle:Front:chow }
+front_annonce_region:
+    pattern:  /Region/{id}/{page}
+    defaults: { _controller: SmartAnnonceBundle:Front:region, page:1 }
+front_annonce_offre:
+    pattern:  Annonce/Offre
+    defaults: { _controller: SmartAnnonceBundle:Front:offre }

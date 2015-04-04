@@ -1,0 +1,134 @@
+{% extends "::layout_front.html.twig" %}
+
+{% block body %}
+
+<div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Créer un compte <span>GRATUIT!</span></h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+      <div class="bloc">
+        <h2>Créez votre compte pour vous permettre de :</h2>
+        <ul>
+          <li>  Déposez vos annonces</li>
+          <li>  Gérer vos annonces</li>
+          <li>  Accès à l'ajout de commentaires sur les annonces</li>
+        </ul>
+        <div class="cb"></div>
+        <div id="inscrire">
+          <h2>Entrez vos informations ci-dessous </h2>
+          <p class="error">
+          {{form_errors(form)}}
+		  </p>
+    <form action="{{ path('fos_user_registration_register') }}" id="form" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+      
+     <div class="input">
+	{{form_errors(form.username)}}
+    
+    {{form_label(form.username,'Pseudo')}}
+    {{form_widget(form.username)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+    
+    
+     <div class="input">
+	{{form_errors(form.plainPassword.first)}}
+    
+    {{form_label(form.plainPassword.first,'Mot de passe')}}
+    {{form_widget(form.plainPassword.first)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+      
+      <div class="input">
+	{{form_errors(form.plainPassword.second)}}
+    
+    {{form_label(form.plainPassword.second,'Retaper Mot de passe')}}
+    {{form_widget(form.plainPassword.second)}}
+    
+        <div class="cb" ></div>
+        
+    </div class="input">
+     <div class="input">
+	{{form_errors(form.email)}}
+    
+    {{form_label(form.email,'Email')}}
+    {{form_widget(form.email)}}
+    
+        <div class="cb" ></div>
+    </div class="input"> 
+    
+	     <div class="input">
+	{{form_errors(form.nom)}}
+    
+    {{form_label(form.nom,'Nom')}}
+    {{form_widget(form.nom)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+    
+         <div class="input">
+	{{form_errors(form.prenom)}}
+    
+    {{form_label(form.prenom,'Prenom')}}
+    {{form_widget(form.prenom)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+    
+         <div class="input">
+	{{form_errors(form.tel)}}
+    
+    {{form_label(form.email,'Tel')}}
+    {{form_widget(form.tel)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+    
+         <div class="input">
+	{{form_errors(form.mobile)}}
+    
+    {{form_label(form.mobile,'Portable')}}
+    {{form_widget(form.mobile)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+	
+	      <div class="input">
+	{{form_errors(form.image)}}
+    
+    {{form_label(form.image,'Photo')}}
+    {{form_widget(form.image)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+	
+	     <div class="input">
+	{{form_errors(form.governorat)}}
+    
+    {{form_label(form.governorat,'Ville')}}
+    {{form_widget(form.governorat)}}
+    
+        <div class="cb" ></div>
+    </div class="input">
+     <div class="input">
+	{{form_rest(form)}}
+    
+    
+        <div class="cb" ></div>
+    </div class="input"> 
+    
+        
+        <div class="input">
+            <input class="btn btn-primary" id="btninscrire" name="valider" type="submit" value="Inscription" />
+            
+        </div>
+    </form>
+    
+</div>
+      </div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    smart_annonce.example.class: Smart\AnnonceBundle\Example
+
+services:
+#    smart_annonce.example:
+#        class: %smart_annonce.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

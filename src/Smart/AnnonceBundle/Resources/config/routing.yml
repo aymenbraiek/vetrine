@@ -1,0 +1,39 @@
+homepage:
+    pattern:  /index
+    defaults: { _controller: SmartAnnonceBundle:Default:index }
+
+index_categorie:
+    pattern: Categorie/index
+    defaults: { _controller: SmartAnnonceBundle:Categorie:index }
+
+new_categorie:
+    pattern: Categorie/new
+    defaults: { _controller: SmartAnnonceBundle:Categorie:New }
+
+edit_categorie:
+    pattern: Categorie/edit/{token}
+    defaults: { _controller: SmartAnnonceBundle:Categorie:Edit }
+
+delete_categorie:
+    pattern: Categorie/delete
+    defaults: { _controller: SmartAnnonceBundle:Categorie:Delete }
+
+index_annonce:
+    pattern: Annonce/index/{page}
+    defaults: { _controller: SmartAnnonceBundle:Annonce:index, page:1 }
+
+new_annonce:
+    pattern: Annonce/new
+    defaults: { _controller: SmartAnnonceBundle:Annonce:new }
+
+edit_annonce:
+    pattern: Annonce/edit/{token}
+    defaults: { _controller: SmartAnnonceBundle:Annonce:Edit }
+
+delete_annonce:
+    pattern: Annonce/delete
+    defaults: { _controller: SmartAnnonceBundle:Annonce:delete }
+
+chow_annonce:
+    pattern: Annonce/chow/{token}
+    defaults: { _controller: SmartAnnonceBundle:Annonce:chow }

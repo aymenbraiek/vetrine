@@ -1,0 +1,21 @@
+index_user_membre:
+    pattern: User/Membre/index/{page}
+    defaults: { _controller: SmartUserBundle:User:indexmembre, page:1 }
+index_user_admin:
+    pattern: User/Admin/index/{page}
+    defaults: { _controller: SmartUserBundle:User:indexadmin , page:1 }    
+edit_user:
+    pattern: User/edit/{salt}
+    defaults: { _controller: SmartUserBundle:User:edit }
+delete_user:
+    pattern: User/delete
+    defaults: { _controller: SmartUserBundle:User:delete }
+role_admin_user:
+    pattern: Membre/role/admin/{salt}
+    defaults: { _controller: SmartUserBundle:User:roleadmin }
+role_user_user:
+    pattern: Mebre/role/user/{salt}
+    defaults: { _controller: SmartUserBundle:User:roleuser }
+chow_user:
+    pattern: User/chow/{salt}
+    defaults: { _controller: SmartUserBundle:User:chow }

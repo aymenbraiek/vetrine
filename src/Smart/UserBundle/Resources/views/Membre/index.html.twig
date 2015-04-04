@@ -1,0 +1,42 @@
+{% extends "SmartUserBundle::layout_membre.html.twig" %}
+
+{% block title %}Compte{% endblock %}
+{% block titre %}
+Mon Compte
+{% endblock %}
+{% block page_body %}
+   
+   
+         
+
+          <div class="blc-mon-compte">
+        <div class="bkg-img">
+          
+            {% if app.user.image != null %}
+                 <img src="{{asset(app.user.image.webPath)}}" alt="avatar" height="199" width="199">
+               {% else %}
+               <img src="{{asset('img\avatar_vide.png')}}" alt="avatar" height="199" width="199">
+              {% endif %}
+           
+        </div>
+        <ul class="info-per">
+          <li class="super">Informations de compte</li>
+          <li>Nom d'utilisateur : {{app.user.username}}</span></li>
+         
+          <li>Email : <span>{{app.user.email}}</span></li>
+          <li class="super">Informations privées</li>
+          <li>Nom : <span>{{app.user.nom}}</span></li>
+          <li>Prenom : <span>{{app.user.prenom}}</span></li>
+          <li>Date inscription : <span>{{app.user.dateinscription|date('d,m,Y')}}</span></li>
+          <li>Ville : <span>{{app.user.governorat.ville}}</span></li>
+          <li>Téléphone : <span>{{app.user.tel}}</span></li>
+          <li>Mobile : <span>{{app.user.mobile}}</span></li>
+        </ul>
+      </div>
+  
+       <div class="cb"></div>
+{% endblock %}
+
+
+
+

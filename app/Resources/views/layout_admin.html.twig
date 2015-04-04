@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}Accueil {% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- css Style -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}">
+<link rel="stylesheet" href="{{ asset('css/selectbox.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/FormValid.css') }}">
+<link type="text/css" href="{{ asset('css/atooltip.css') }}" rel="stylesheet"  media="screen" >
+
+{% endblock %}
+<!-- js javascript -->
+{% block javascripts %}
+<script src="{{ asset('js/jquery.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.selectBox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.atooltip.js') }}"></script>
+<!-- js javascript interne selectBox -->
+<script type="text/javascript">
+  $(document).ready( function() {
+    $("SELECT").selectBox();
+  });
+</script>
+<!-- aToolTip js -->
+<script type="text/javascript">
+      $(function(){ 
+         $('a.gere').aToolTip({
+            fixed: true
+        });
+        
+      }); 
+</script>
+<script type="text/javascript">
+      $(function(){ 
+         $('a.a_la_une.gris').aToolTip({
+            fixed: true
+        });
+        
+      }); 
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      
+      $('a.a_la_une.gris').click(function(){
+        var id = $(this).attr("id");
+        var string = 'id='+ id ;
+      $.ajax({
+        type: "POST",
+        url: 'a_la_une.php',
+        data: string,
+        cache: false,
+        success: function(data)
+        {
+          
+        }
+      });
+      return false;
+      });
+        
+    });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      
+      $('a.a_la_une.vert').click(function(){
+        var id = $(this).attr("id");
+        var string = 'id='+ id ;
+      $.ajax({
+        type: "POST",
+        url: 'supp_a_la_une.php',
+        data: string,
+        cache: false,
+        success: function(data)
+        {
+          
+        }
+      });
+      return false;
+      });
+        
+    });
+</script>
+{% endblock %}
+</head>
+<body>
+  <div class="entete">
+    <a href="" class="retour">voir site</a>
+  </div><!-- / entete-->
+  <div class="centent">
+    <div class="wrapp2">
+      <div class="barreMenu">
+        <h1>Administration |</h1>
+        <ul class="menu">
+          <li><a href="{{path('homepage')}}" title="{{path('homepage')}}">Accueil</a></li>
+          <li><a href="{{path('index_annonce')}}" title="{{path('homepage')}}">Gestion d'annonces</a></li>
+          <li><a href="{{path('index_categorie')}}" title="{{path('homepage')}}">Gestion categorie</a></li>
+          <li><a href="{{path('index_user_membre')}}" title="">Gestion des membres</a></li>
+          <li><a href="" title="">Gestion des messages</a></li>
+          <li><a href="{{path('index_user_admin')}}" title="">Administration</a></li>
+
+</ul>
+        <a href="{{	path('fos_user_security_logout') }}" title="" class="logout">Déconnecté</a><a href="{{path('fos_user_profile_show') }}" title="" class="logout">Mon profile </a>
+      </div>
+      <div class="left">
+        <div id="" class="nav">
+          <img src="{{ asset('img/accueil.png') }}" alt="">
+        </div><!-- / nav-->
+      </div><!-- / left-->
+      <div class="right">
+        <div class="contenu">
+          <h2>Tableau de bord</h2>
+           <div class="tab">
+            <ul>
+              <li><a href="{{path('index_annonce')}}" title=""><span>nbr ann</span>annonces</a></li>
+              <li><div id="nombre"></div><a href="" title=""><span>nbr msg</span>messages</a></li>
+              <li><a href="{{path('index_user_membre')}}" title=""><span>nbr mbr</span>membres</a></li>
+              <li><a href="{{path('index_user_admin')}}" title=""><span>nbr admin</span>admin</a></li>
+            </ul>
+          </div> 
+          <div style="min-height:600px;">
+  {% block body %}
+  {% endblock %}
+           </div>
+        </div>
+      </div><!-- / right-->
+    </div><!-- / wrapp2-->
+  </div><!-- / centent-->
+</body>
+</html>

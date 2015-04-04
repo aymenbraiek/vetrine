@@ -1,0 +1,10 @@
+{% extends "SmartAnnonceBundle::layout_annonce.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+{% block titre %}
+<h1>Gestion d'annonces:<span> Modifier Annonce </span></h1>
+{% endblock %}
+{% block page_body %}
+      {% include "SmartAnnonceBundle:Annonce:form.html.twig" %}
+           
+{% endblock %}

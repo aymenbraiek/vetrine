@@ -1,0 +1,51 @@
+{% extends "SmartUserBundle::layout_user.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+{% block titre %}
+<h1>Fiche d'identification</h1>
+{% endblock %}
+{% block page_body %}
+    
+<div id="" class="gst">
+             
+              
+              <div id="" class="informations">
+                 <h3>Quelques informations </h3>
+                 <div class="donnee">
+                  <div>
+                    <h1>Nom : <span>{{user.nom}}</span></h1>
+                  </div>
+                  <div>
+                    <h1>Prénom :  <span>{{user.prenom}}</span></h1>
+                  </div>
+              
+                  <div>
+                    <h1>Email : <span>{{user.email}}</span></h1>
+                  </div>
+                  
+                  <div>
+                    <h1>Ville :  <span>{{user.governorat.ville}}</span></h1>
+                  </div>
+                  <div>
+                    <h1>Inscrit depuis le :  <span>{{user.dateinscription|date('Y,m,d')}}</span></h1>
+                  </div>
+                  <div>
+                    <h1>Mobile :  <span>{{user.mobile}}</span></h1>
+                  </div>
+                  <div>
+                    <h1>Téléphone:  <span>{{user.tel}}</span></h1>
+                  </div>
+                 </div><!-- / -->
+                 <div class="bkg-img">
+                  
+                  
+                   <img src="{{asset(user.image.webPath)}}" alt="{{user.image.alt}}" />
+                  
+                 </div>
+               </div><!-- / informations --> 
+          </div><!-- / gst-->      
+         
+          
+  
+       
+{% endblock %}

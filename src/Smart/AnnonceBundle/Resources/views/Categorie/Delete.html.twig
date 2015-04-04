@@ -1,0 +1,14 @@
+{% extends "SmartAnnonceBundle::layout.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block page_body %}
+      <h1>Gestion Catgeorie:<span> Supprimer Categorie </span></h1>
+            <div class="separ"></div>
+            <div class="liens anno">
+              <a href="{{path('new_annonce')}}" title="" class="ajouAnno">ajouter une annonces</a><h3>ajouter une annonces</h3>
+              <a href="{{path('new_categorie')}}" title="" class="ajouAnno">Ajouter une catégorie</a><h3>Ajouter une catégorie</h3>
+              <a href="{{path('index_categorie')}}" title="" class="ajouAnno list">Liste des catégories</a><h3>Liste des catégories</h3>
+              <div class="cb"></div>
+            </div>
+{% endblock %}

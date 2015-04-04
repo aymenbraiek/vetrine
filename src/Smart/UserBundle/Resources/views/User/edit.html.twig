@@ -1,0 +1,97 @@
+{% extends "SmartUserBundle::layout_user.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+{% block titre %}
+<h1>Informations privées</h1>
+{% endblock %}
+{% block page_body %}
+    
+<div class="gst">
+         
+          
+                <div class="center-blc">
+      <div class="info-compte">
+       
+        
+
+      <div class="info-priv">
+        
+
+        <form method="POST" {{form_enctype(form)}}>
+       
+        <div id="" class="input">
+        {{form_errors(form.username) }}
+		{{form_label(form.username) }}
+		{{form_widget(form.username) }}
+	
+ 		<div class="cb"></div>
+ 			</div>
+ 			
+	    <div id="" class="input">
+        {{form_errors(form.email) }}
+		{{form_label(form.email) }}
+		{{form_widget(form.email) }}
+	
+ 		<div class="cb"></div>
+	</div>
+	
+	    <div id="" class="input">
+        {{form_errors(form.nom) }}
+		{{form_label(form.nom) }}
+		{{form_widget(form.nom) }}
+	
+ 		<div class="cb"></div>
+	</div>
+	    <div id="" class="input">
+        {{form_errors(form.prenom) }}
+		{{form_label(form.prenom) }}
+		{{form_widget(form.prenom) }}
+	
+ 		<div class="cb"></div>
+	</div>
+	
+		
+
+		
+	    <div id="" class="input">
+        {{form_errors(form.tel) }}
+		{{form_label(form.tel) }}
+		{{form_widget(form.tel) }}
+	
+ 		<div class="cb"></div>
+	</div>
+		
+	    <div id="" class="input">
+        {{form_errors(form.mobile) }}
+		{{form_label(form.mobile) }}
+		{{form_widget(form.mobile) }}
+	
+ 		<div class="cb"></div>
+	</div>
+		
+	    <div id="" class="input">
+        {{form_errors(form.image) }}
+		{{form_label(form.image) }}
+		{{form_widget(form.image) }}
+	 <img src="{{asset(user.image.webPath)}}" alt="avatar" />
+ 		<div class="cb"></div>
+	</div>
+       	    <div id="" class="input">
+        {{form_errors(form.governorat) }}
+		{{form_label(form.governorat) }}
+		{{form_widget(form.governorat) }}
+	
+ 		<div class="cb"></div>
+	</div>
+	{{form_rest(form)}}
+        <div class="input">
+          
+          <input type="submit" value="ENREGISTRER" name="infos" class="submit">
+        </div>
+        </form>
+      </div>
+      <div class="cb"></div>
+      </div>
+          </div>    
+       
+{% endblock %}

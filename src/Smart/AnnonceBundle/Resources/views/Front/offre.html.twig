@@ -1,0 +1,95 @@
+{% extends "SmartAnnonceBundle::layout_front.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie{% endblock %}
+
+{% block form_recherche %}
+
+{% endblock %}
+{% block page_body %}
+
+<div id="filter">
+      <form id="frmfilter"   method="POST" {{form_enctype(form)}}>
+        
+        <div class="input_select">
+        {{form_errors(form.cle)}}
+	
+		{{form_widget(form.cle)}}
+        </div>
+        
+        <div class="input_select">
+        {{form_errors(form.governorat)}}
+		
+		{{form_widget(form.governorat)}}
+		
+        </div>
+         <div class="input_select">
+        {{form_errors(form.categorie)}}
+	
+		{{form_widget(form.categorie)}}
+        </div>
+        {{form_rest(form)}}
+        <input type="submit" class="btnsubmit" name="" value="Recherche" />
+    </form>
+</div>
+
+<div class="separator"></div>
+    <div class="bkg-content-top"></div>
+    <div class="bkg-content">
+      <h1 class="title">Les Offres</h1>
+      <h1 class="tri">
+     
+      </h1>
+      <div class="cb"></div>
+      <div class="separator2"></div>
+     
+     {% if annonces == null %}
+            <div class="resultat">
+          <h1 >
+            Aucune annonce ne correspond à votre recherche !<br>
+            <span>Si vous effectuez une recherche par mots-clés, vérifiez bien qu'il n'y a pas de faute de frappe.</span>
+          </h1>
+        </div>
+     
+     {% else %}
+     {% for annonce in annonces %}
+     
+     
+          <div class="new-anno">
+            {% if annonce.image != null %}
+            <a href="{{asset(annonce.image.webPath)}}" title="" class="img-new-anno">
+             <img src="{{asset(annonce.image.webPath)}}" width="151" height="106" alt=""> </a>
+            {% else %}
+            <a href="" class="img-new-anno">
+              <img src="{{asset('img/no-avatar.jpg')}}" width="151" height="106" alt="" >
+            </a>
+            {%endif%}
+            <div class="desc-new-anno">
+              <h1><span>{{annonce.titre}}</span></h1>
+              <h4>
+                <span class="date">{{annonce.dateinsert|date('d,m,Y')}}</span>
+                <span class="membre">publié par {{annonce.user.username}} title=""> </span>
+              
+               
+               <span class="comment"> nbr commentaires</span>
+              </h4>
+              <div class="cb"></div>
+              <h2>
+                {{annonce.description | striptags | slice(0, 400)}}Lire la suite...</a>
+              
+              </h2>
+            </div>
+       
+          <div class="prix"><span></span><p>{{annonce.prix}} DNT</p></div>
+        
+            <a href="{{path('front_annonce_detail',{'token':annonce.token})}}" class="details">Voir annonce »</a>
+          </div>
+          {%endfor%}
+          
+          {% endif %}
+          <div class="separator-anno"></div>
+        
+        
+      <div class="cb"></div>
+    </div>
+    <div class="bkg-content-bottom"></div>
+{% endblock %}

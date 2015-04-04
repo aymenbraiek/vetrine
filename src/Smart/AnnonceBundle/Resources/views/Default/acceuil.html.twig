@@ -1,0 +1,39 @@
+{% extends "SmartAnnonceBundle::layout.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+
+{% block body %}
+    <div id="" class="gst">
+              <h1>Accueil</h1>
+              <div class="separ"></div>
+              <div class="blok">
+                <div class="sous-blok">
+                  <img src="{{ asset('img/add.png') }}" alt="">
+                  <div class="cb"></div>
+                  <a href="ajoutAnnonce.php" title="">Ajouter annonces</a>
+                </div>
+                <div class="sous-blok">
+                  <img src="{{ asset('img/users.png') }}" alt="">
+                  <div class="cb"></div>
+                  <a href="gst_membre.php" title="">Gestion des membre</a>                  
+                </div>
+                <div class="sous-blok">
+                  <img src="{{ asset('img/Aquave Manager.png') }}" alt="">
+                  <div class="cb"></div>
+                  <a href="gst_admin.php" title="">Gestion d'administration</a>                  
+                </div>
+                <div class="sous-blok2">
+                <div class="sous-blok">
+                  <img src="{{ asset('img/Apps.png') }}" alt="">
+                  <div class="cb"></div>
+                  <a href="gst_cat.php" title="">Gestion des catégories</a>
+                </div>
+                <div class="sous-blok">
+                  <img src="{{ asset('img/handy-icon_11.png') }}" alt="">
+                  <div class="cb"></div>
+                  <a href="gst_msg.php" title="">Gestion des messages</a>                  
+                </div>
+                </div>
+              </div>    
+          </div><!-- / gst--> 
+{% endblock %}

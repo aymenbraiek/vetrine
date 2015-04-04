@@ -1,0 +1,22 @@
+smart_user:
+    resource: "@SmartUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+smart_user_back:
+    resource: "@SmartUserBundle/Resources/config/routing_back.yml"
+    prefix:   /Admin
+
+smart_annonce:
+    resource: "@SmartAnnonceBundle/Resources/config/routing.yml"
+    prefix:   /Admin
+smart_annonce_front:
+    resource: "@SmartAnnonceBundle/Resources/config/routing_front.yml"
+    prefix:   /
+smart_user_membre:
+    resource: "@SmartUserBundle/Resources/config/routing_membre.yml"
+    prefix:   /Membre
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }

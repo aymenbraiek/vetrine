@@ -1,0 +1,55 @@
+<form method="POST" {{form_enctype(form)}} id="frmAnno">
+
+<span style="color:red;">{{form_errors(form) }}</span>
+<div id="" class="input">
+	{{form_label(form.categorie) }}
+	{{form_widget(form.categorie) }}
+	
+ 	<div class="cb"></div>
+</div>	
+<div id="" class="input">
+	{{form_label(form.governorat) }}
+	{{form_widget(form.governorat) }}
+	
+ 	<div class="cb"></div>
+</div>	
+<div id="" class="input">
+	{{form_label(form.titre) }}
+	{{form_widget(form.titre) }}
+	
+ 	<div class="cb"></div>
+</div>
+<div id="" class="input">
+	{{form_label(form.description) }}
+	{{form_widget(form.description) }}
+	
+ 	<div class="cb"></div>
+</div>
+<div id="" class="input">
+	
+	{{form_label(form.prix) }}
+	<span style="color:red;">{{form_errors(form.prix) }}</span>
+	
+	{{form_widget(form.prix) }}
+	
+	
+ 	<div class="cb"></div>
+</div>
+
+<div id="" class="input">
+	
+	{{form_label(form.image) }}
+	<span style="color:red;">{{form_errors(form.image) }}</span>
+	
+	{{form_widget(form.image) }}
+	
+	
+ 	<div class="cb"></div>
+</div>
+
+{{form_rest(form)}}
+<div id="" class="input last">
+<input type="submit" class="submit modif"  />
+<a href="{{path("index_categorie")}}"  >Annuler</a>
+</div>
+</form>

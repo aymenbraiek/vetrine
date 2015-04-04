@@ -1,0 +1,43 @@
+{% extends "SmartAnnonceBundle::layout_annonce.html.twig" %}
+
+{% block title %}SmartAnnonceBundle:Categorie:index{% endblock %}
+{% block titre %}
+<h1>Gestion d'annonces:<span> Détail Annonce </span></h1>
+{% endblock %}
+{% block page_body %}
+       
+             <div class="new-anno">
+              
+              
+              <a href="" class="img-new-anno">
+              {% if annonce.image == null %}
+                <img src="{{asset('img/no-avatar.jpg')}}" alt="" >
+              {% else %}
+              <img src="{{asset(annonce.image.webPath)}}" alt="{{annonce.image.alt}} " width="151" height="106" >
+              {% endif %}  
+              </a>
+             
+              <div class="desc-new-anno">
+                <h1>Titre d'annonce: <span>{{annonce.titre}}</span></h1>
+                <h4>
+                  <span class="date">{{annonce.dateinsert|date('Y,m,d')}}</span>
+                  <span class="membre">publié par:{{annonce.user.nom}}</span>
+                 
+                  <span class="comment"> 0 commentaires</span>
+                </h4>
+                <div class="cb"></div>
+                <p>
+                   {{annonce.description}} 
+                </p>
+              </div>
+              <a href="" id="{{annonce.id}}" class="gere supprimer" title="Supprimer">Supprimer</a>
+              
+              <a href="" id="{{annonce.id}}" class="a_la_une vert" title="à la une">à la une</a>
+              
+              <div class="prix"><span></span><p>{{annonce.prix}} DNT</p></div>
+             
+                <a href="{{path('chow_annonce',{'token':annonce.token})}}" class="details">Voir annonce »</a>
+            </div>
+            
+            <div class="separator-anno"></div>
+{% endblock %}
